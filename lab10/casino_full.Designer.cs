@@ -33,7 +33,7 @@ namespace lab10
         private void InitializeComponent()
         {
 
-            this.button37 = new System.Windows.Forms.Button();
+            /*this.button37 = new System.Windows.Forms.Button();
             this.button38 = new System.Windows.Forms.Button();
             this.button39 = new System.Windows.Forms.Button();
             this.button40 = new System.Windows.Forms.Button();
@@ -55,16 +55,19 @@ namespace lab10
             this.button56 = new System.Windows.Forms.Button();
             this.button57 = new System.Windows.Forms.Button();
             this.button58 = new System.Windows.Forms.Button();
-            this.button59 = new System.Windows.Forms.Button();
+            this.button59 = new System.Windows.Forms.Button();*/
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.button60 = new System.Windows.Forms.Button();
             this.button61 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.button62 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             //
@@ -90,8 +93,7 @@ namespace lab10
                     button.Tag = "number_bet";
                     button.Text = $"{button_id}";
                     button.UseVisualStyleBackColor = true;
-                    /*                    button.Click += new System.EventHandler(this.button1_Click);*/ // FIXME
-                                                                                                                            
+                    button.Click += new System.EventHandler(this.number_bet_Click);
                     button_id += 1;
                     this.Controls.Add(button);
                     this.listOfButtons.Add(button);
@@ -121,8 +123,7 @@ namespace lab10
                 button.Text = $"{range}-{range + 2}";
                 range += 3;
                 button.UseVisualStyleBackColor = true;
-                /*                    button.Click += new System.EventHandler(this.button1_Click);*/ // FIXME
-
+                button.Click += new System.EventHandler(this.small_bet_Click);
                 button_id += 1;
                 this.Controls.Add(button);
                 this.listOfButtons.Add(button);
@@ -149,8 +150,7 @@ namespace lab10
                 button.Text = $"{range}-{range + 5}";
                 range += 6;
                 button.UseVisualStyleBackColor = true;
-                /*button.Click += new System.EventHandler(this.button1_Click); // FIXME
-*/
+                button.Click += new System.EventHandler(this.medium_bet_Click);
                 button_id += 1;
                 this.Controls.Add(button);
                 this.listOfButtons.Add(button);
@@ -177,8 +177,7 @@ namespace lab10
                 button.Text = $"{range}-{range + 11}";
                 range += 12;
                 button.UseVisualStyleBackColor = true;
-                /*button.Click += new System.EventHandler(this.button1_Click); // FIXME
-*/
+                button.Click += new System.EventHandler(this.large_bet_Click);
                 button_id += 1;
                 this.Controls.Add(button);
                 this.listOfButtons.Add(button);
@@ -206,14 +205,21 @@ namespace lab10
                 button.Text = $"{range}-{range + 17}";
                 range += 18;
                 button.UseVisualStyleBackColor = true;
-                /*button.Click += new System.EventHandler(this.button1_Click); // FIXME
-*/
+                button.Click += new System.EventHandler(this.Elarge_bet_Click);
                 button_id += 1;
                 this.Controls.Add(button);
                 this.listOfButtons.Add(button);
             }
+            //
+            // textBox1
+            //
+            this.textBox1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.textBox1.Location = new System.Drawing.Point(488, 215);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(195, 20);
+            this.textBox1.TabIndex = 0;
 
-           
             // 
             // pictureBox2
             // 
@@ -234,8 +240,8 @@ namespace lab10
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 21);
             this.label4.TabIndex = 67;
-            this.label4.Tag = "bet_medium";
             this.label4.Text = "2 игрок";
+            this.label4.AutoEllipsis = true;
             // 
             // label5
             // 
@@ -245,7 +251,7 @@ namespace lab10
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 48);
             this.label5.TabIndex = 66;
-            this.label5.Text = "Очки: ";
+            this.label5.Text = $"Очки:{player_2_balance}";
             // 
             // label3
             // 
@@ -265,7 +271,40 @@ namespace lab10
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 48);
             this.label2.TabIndex = 64;
-            this.label2.Text = "Очки: ";
+            this.label2.Text = $"Очки:{player_1_balance}";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(93, 205);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 73);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "36";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(650,720);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(104, 73);
+            this.label7.TabIndex = 68;
+            this.label7.Text = "Ставка 2 игрока - ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(200, 720);
+            this.label8.Name = "label7";
+            this.label8.Size = new System.Drawing.Size(104, 73);
+            this.label8.TabIndex = 68;
+            this.label8.Text = "Ставка 1 игрока - ";
             // 
             // button60
             // 
@@ -285,17 +324,6 @@ namespace lab10
             this.button61.Text = "Добавить второго игрока";
             this.button61.UseVisualStyleBackColor = true;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(93, 205);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 73);
-            this.label6.TabIndex = 68;
-            this.label6.Text = "36";
-            // 
             // button62
             // 
             this.button62.BackColor = System.Drawing.Color.Gold;
@@ -307,42 +335,27 @@ namespace lab10
             this.button62.TabIndex = 69;
             this.button62.Text = "Крутить";
             this.button62.UseVisualStyleBackColor = false;
+            button62.Click += new System.EventHandler(this.spin_Click);
             // 
             // Form6
             // 
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(984, 961);
             this.Controls.Add(this.button62);
-         
             this.Controls.Add(this.button60);
             this.Controls.Add(this.button61);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button59);
-            this.Controls.Add(this.button58);
-            this.Controls.Add(this.button57);
-            this.Controls.Add(this.button56);
-            this.Controls.Add(this.button55);
-            this.Controls.Add(this.button53);
-            this.Controls.Add(this.button54);
-            this.Controls.Add(this.button51);
-            this.Controls.Add(this.button52);
-            this.Controls.Add(this.button50);
-            this.Controls.Add(this.button49);
-            this.Controls.Add(this.button37);
-            this.Controls.Add(this.button38);
-            this.Controls.Add(this.button39);
-            this.Controls.Add(this.button40);
-            this.Controls.Add(this.button41);
-            this.Controls.Add(this.button42);
-            this.Controls.Add(this.button43);
-            this.Controls.Add(this.button44);
-            this.Controls.Add(this.button45);
-            this.Controls.Add(this.button46);
-            this.Controls.Add(this.button47);
-            this.Controls.Add(this.button48);
-           
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
+
             this.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.MinimumSize = new System.Drawing.Size(1000, 1000);
             this.Name = "Form6";
@@ -358,35 +371,15 @@ namespace lab10
         }
 
         #endregion
-       
-        private System.Windows.Forms.Button button37;
-        private System.Windows.Forms.Button button38;
-        private System.Windows.Forms.Button button39;
-        private System.Windows.Forms.Button button40;
-        private System.Windows.Forms.Button button41;
-        private System.Windows.Forms.Button button42;
-        private System.Windows.Forms.Button button43;
-        private System.Windows.Forms.Button button44;
-        private System.Windows.Forms.Button button45;
-        private System.Windows.Forms.Button button46;
-        private System.Windows.Forms.Button button47;
-        private System.Windows.Forms.Button button48;
-        private System.Windows.Forms.Button button49;
-        private System.Windows.Forms.Button button50;
-        private System.Windows.Forms.Button button51;
-        private System.Windows.Forms.Button button52;
-        private System.Windows.Forms.Button button53;
-        private System.Windows.Forms.Button button54;
-        private System.Windows.Forms.Button button55;
-        private System.Windows.Forms.Button button56;
-        private System.Windows.Forms.Button button57;
-        private System.Windows.Forms.Button button58;
-        private System.Windows.Forms.Button button59;
+
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button60;
         private System.Windows.Forms.Button button61;
         private System.Windows.Forms.Label label6;
@@ -406,8 +399,6 @@ namespace lab10
         private const int medium_bet_start_x = 662;
         private const int large_bet_start_x = 751;
         private const int Elarge_bet_start_x = 840;
-
-
-
+        
     }
 }

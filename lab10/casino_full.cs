@@ -11,8 +11,16 @@ using System.Windows.Forms;
 namespace lab10
 {
     public partial class Form6 : Form
-    {   
-        
+    {
+        public int player_1_balance = 8;
+        public int player_2_balance = 8;
+        public int player_1_win = 0, player_2_win = 0;
+        public string score = "Очки:";
+        public int player_1_bet_value = 0, player_2_bet_value = 0;
+        public bool player_1_bet = false, player_2_bet = false;
+        public bool order = false; //false - player_1, true - player_2
+        public string player_1_value, player_2_value = "2222222";
+        public int result;
         private void click(Button button)
         {   
             button.BackColor = Color.Black;
@@ -35,11 +43,7 @@ namespace lab10
             int xn = this.Height/2;
             int yn = this.Width/2;
             
-           /* R.TranslateTransform(xn, yn);
-            R.DrawLine(new Pen(Color.Brown, 1.0f), -1000, 0, 1000, 0);
-            R.DrawLine(new Pen(Color.Brown, 1.0f), 0, -1000, 0, 1000);
-           *//* R.DrawEllipse(new Pen(Color.Blue, 3.0f), 50, 50, 400, -400);*//*
-            R.FillEllipse(new SolidBrush(Color.FromArgb(255,32, 69, 26)), 50, 50, 400, -400);*/
+          
 
         }
 
@@ -47,7 +51,153 @@ namespace lab10
         {
 
         }
-        
-      
+
+        private void number_bet_Click(object sender, EventArgs e)
+        {
+            if (order == false && player_1_bet == false)
+            {
+                player_1_value = this.Text;
+                if (player_1_balance > 0)
+                {
+                    player_1_balance -= 1;
+                    player_1_bet_value += 1;
+                }
+
+                label2.Text = score + player_1_balance;
+                order = true;
+                player_1_bet = true;
+            }
+            else if (order == true && player_2_bet == false)
+            {
+                player_2_value = this.Text;
+                if (player_2_balance > 0)
+                {
+                    player_2_balance -= 1;
+                }
+
+                label5.Text = score + player_2_balance;
+                order = false;
+                player_2_bet = true;
+            }
+        }
+        private void small_bet_Click(object sender, EventArgs e)
+        {
+            if (order == false && player_1_bet == false)
+            {
+                player_1_value = this.Text;
+                if (player_1_balance > 0)
+                {
+                    player_1_balance -= 1;
+                    player_1_bet_value += 1;
+                }
+
+                label2.Text = score + player_1_balance;
+                order = true;
+                player_1_bet = true;
+            }
+            else if (order == true)
+            {
+                player_2_value = this.Text;
+                if (player_2_balance > 0)
+                {
+                    player_2_balance -= 1;
+                }
+
+                label5.Text = score + player_2_balance;
+                order = false;
+                player_2_bet = true;
+            }
+        }
+        private void medium_bet_Click(object sender, EventArgs e)
+        {
+            if (order == false && player_1_bet == false)
+            {
+                player_1_value = this.Text;
+                if (player_1_balance > 0)
+                {
+                    player_1_balance -= 1;
+                    player_1_bet_value += 1;
+                }
+
+                label2.Text = score + player_1_balance;
+                order = true;
+                player_1_bet = true;
+            }
+            else if (order == true)
+            {
+                player_2_value = this.Text;
+                if (player_2_balance > 0)
+                {
+                    player_2_balance -= 1;
+                }
+
+                label5.Text = score + player_2_balance;
+                order = false;
+                player_2_bet = true;
+            }
+        }
+        private void large_bet_Click(object sender, EventArgs e)
+        {
+            if (order == false && player_1_bet == false)
+            {
+                player_1_value = this.Text;
+                if (player_1_balance > 0)
+                {
+                    player_1_balance -= 1;
+                    player_1_bet_value += 1;
+                }
+
+                label2.Text = score + player_1_balance;
+                order = true;
+                player_1_bet = true;
+            }
+            else if (order == true)
+            {
+                player_2_value = this.Text;
+                if (player_2_balance > 0)
+                {
+                    player_2_balance -= 1;
+                }
+
+                label5.Text = score + player_2_balance;
+                order = false;
+                player_2_bet = true;
+            }
+        }
+        private void Elarge_bet_Click(object sender, EventArgs e)
+        {
+            if (order == false && player_1_bet == false)
+            {
+                player_1_value = this.Text;
+                if (player_1_balance > 0)
+                {
+                    player_1_balance -= 1;
+                    player_1_bet_value += 1;
+                }
+
+                label2.Text = score + player_1_balance;
+                order = true;
+                player_1_bet = true;
+            }
+            else if (order == true)
+            {
+                player_2_value = this.Text;
+                if (player_2_balance > 0)
+                {
+                    player_2_balance -= 1;
+                }
+
+                label5.Text = score + player_2_balance;
+                order = false;
+                player_2_bet = true;
+            }
+        }
+
+        private void spin_Click(object sender, EventArgs e)
+        {
+            result = new Random().Next(0, 36);
+            player_1_bet = false;
+            player_2_bet = false;
+        }
     }
 }

@@ -51,6 +51,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="casino_full.Designer.cs" />
+    <Compile Include="casino_full1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>casino_full.resx</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,7 +106,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="casino_full.resx" />
+    <EmbeddedResource Include="casino_full.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>casino_full1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
