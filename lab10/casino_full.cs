@@ -19,7 +19,7 @@ namespace lab10
         public int player_1_bet_value = 0, player_2_bet_value = 0;
         public bool player_1_bet = false, player_2_bet = false;
         public bool order = false; //false - player_1, true - player_2
-        public string player_1_value, player_2_value = "2222222";
+        public string player_1_value, player_2_value;
         public int result;
         private void click(Button button)
         {   
@@ -56,7 +56,7 @@ namespace lab10
         {
             if (order == false && player_1_bet == false)
             {
-                player_1_value = this.Text;
+                player_1_value = (sender as Button).Text;
                 if (player_1_balance > 0)
                 {
                     player_1_balance -= 1;
@@ -69,7 +69,7 @@ namespace lab10
             }
             else if (order == true && player_2_bet == false)
             {
-                player_2_value = this.Text;
+                player_2_value = (sender as Button).Text;
                 if (player_2_balance > 0)
                 {
                     player_2_balance -= 1;
@@ -84,7 +84,7 @@ namespace lab10
         {
             if (order == false && player_1_bet == false)
             {
-                player_1_value = this.Text;
+                player_1_value = (sender as Button).Text;
                 if (player_1_balance > 0)
                 {
                     player_1_balance -= 1;
@@ -97,7 +97,7 @@ namespace lab10
             }
             else if (order == true)
             {
-                player_2_value = this.Text;
+                player_2_value = (sender as Button).Text;
                 if (player_2_balance > 0)
                 {
                     player_2_balance -= 1;
@@ -112,7 +112,7 @@ namespace lab10
         {
             if (order == false && player_1_bet == false)
             {
-                player_1_value = this.Text;
+                player_1_value = (sender as Button).Text;
                 if (player_1_balance > 0)
                 {
                     player_1_balance -= 1;
@@ -125,7 +125,7 @@ namespace lab10
             }
             else if (order == true)
             {
-                player_2_value = this.Text;
+                player_2_value = (sender as Button).Text;
                 if (player_2_balance > 0)
                 {
                     player_2_balance -= 1;
@@ -140,7 +140,7 @@ namespace lab10
         {
             if (order == false && player_1_bet == false)
             {
-                player_1_value = this.Text;
+                player_1_value = (sender as Button).Text;
                 if (player_1_balance > 0)
                 {
                     player_1_balance -= 1;
@@ -153,7 +153,7 @@ namespace lab10
             }
             else if (order == true)
             {
-                player_2_value = this.Text;
+                player_2_value = (sender as Button).Text;
                 if (player_2_balance > 0)
                 {
                     player_2_balance -= 1;
@@ -168,7 +168,7 @@ namespace lab10
         {
             if (order == false && player_1_bet == false)
             {
-                player_1_value = this.Text;
+                player_1_value = (sender as Button).Text;
                 if (player_1_balance > 0)
                 {
                     player_1_balance -= 1;
@@ -181,7 +181,7 @@ namespace lab10
             }
             else if (order == true)
             {
-                player_2_value = this.Text;
+                player_2_value = (sender as Button).Text;
                 if (player_2_balance > 0)
                 {
                     player_2_balance -= 1;
@@ -195,9 +195,18 @@ namespace lab10
 
         private void spin_Click(object sender, EventArgs e)
         {
-            result = new Random().Next(0, 36);
-            player_1_bet = false;
-            player_2_bet = false;
+            
+            if (player_1_bet == true && player_2_bet == true)
+            {
+                result = new Random().Next(0, 36);
+                label6.Text = result.ToString();
+                player_1_bet = false;
+                player_2_bet = false;
+                if(Int32.Parse(player_1_value) == result)
+                {
+                    label6.Text = "WWW";
+                }
+            }
         }
     }
 }

@@ -347,7 +347,7 @@ namespace lab10
             this.Controls.Add(this.button62);
             this.Controls.Add(this.button60);
             this.Controls.Add(this.button61);
-            this.Controls.Add(this.pictureBox2);
+            /*this.Controls.Add(this.pictureBox2);*/
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -378,11 +378,11 @@ namespace lab10
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button60;
         private System.Windows.Forms.Button button61;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button62;
         private List<Button> listOfButtons = new List<Button>();
         private List<int> player1_bets;
